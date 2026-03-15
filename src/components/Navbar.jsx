@@ -125,7 +125,7 @@ export default function Navbar() {
           {!isCustomer && !isAdmin && (
             <Link
               to="/customer-auth"
-              className="rounded-full bg-sky-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-sky-500 dark:bg-sky-500 dark:hover:bg-sky-400"
+              className="hidden rounded-full bg-sky-600 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-sky-500 sm:inline-flex dark:bg-sky-500 dark:hover:bg-sky-400"
             >
               Login
             </Link>

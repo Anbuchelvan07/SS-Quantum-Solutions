@@ -29,9 +29,9 @@ export default function MeetingSetupModal({ booking, token, onClose, onSuccess }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className=\"w-full max-w-md rounded-3xl border border-slate-800 bg-slate-950 p-4 shadow-lg sm:p-6\">
-        <h2 className=\"text-lg font-semibold text-slate-50 sm:text-xl\">Accept Consultation</h2>
-        <p className=\"mt-2 text-xs text-slate-400 sm:text-sm\">Booking: {booking.name} • {booking.date} at {booking.time}</p>
+      <div className="w-full max-w-md rounded-3xl border border-slate-800 bg-slate-950 p-4 shadow-lg sm:p-6">
+        <h2 className="text-lg font-semibold text-slate-50 sm:text-xl">Accept Consultation</h2>
+        <p className="mt-2 text-xs text-slate-400 sm:text-sm">Booking: {booking.name} • {booking.date} at {booking.time}</p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           {error && (
