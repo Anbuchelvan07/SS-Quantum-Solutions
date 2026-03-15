@@ -35,11 +35,12 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="inline-flex items-center justify-center sm:hidden"
+            className="relative inline-flex items-center justify-center rounded-lg p-2 text-slate-600 transition-all duration-200 hover:bg-slate-100 active:scale-95 sm:hidden dark:text-slate-400 dark:hover:bg-slate-800"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+            <svg className="h-7 w-7 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
             </svg>
           </button>
 
@@ -94,10 +95,12 @@ export default function Navbar() {
               </li>
             )}
           </ul>
+
+          {/* Desktop buttons - hidden on mobile */}
           {isCustomer && (
             <Link
               to="/book"
-              className="inline-flex rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:hidden dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+              className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
             >
               Bookings
             </Link>
@@ -105,7 +108,7 @@ export default function Navbar() {
           {!isCustomer && (
             <Link
               to={isAdmin ? '/admin' : '/admin/auth'}
-              className="inline-flex rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:hidden dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+              className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
             >
               {isAdmin ? 'Dashboard' : 'Admin'}
             </Link>
@@ -114,7 +117,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={logout}
-              className="rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+              className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
             >
               Logout
             </button>
@@ -133,30 +136,31 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {menuOpen && (
-        <div className=\"border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 sm:hidden\">
-          <div className=\"space-y-1 px-4 py-3\">
+        <div className="animate-in fade-in slide-in-from-top-1 border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 sm:hidden">
+          <div className="space-y-2 px-4 py-4">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === item.path
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
                 }`}
               >
                 {item.label}
               </Link>
             ))}
+            <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
             {isCustomer && (
               <Link
-                to=\"/book\"
+                to="/book"
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === '/book'
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
                 }`}
               >
                 My Bookings
@@ -164,12 +168,12 @@ export default function Navbar() {
             )}
             {isAdmin && (
               <Link
-                to=\"/admin\"
+                to="/admin"
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === '/admin'
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
                 }`}
               >
                 Dashboard
@@ -177,16 +181,43 @@ export default function Navbar() {
             )}
             {!isAdmin && (
               <Link
-                to=\"/admin/auth\"
+                to="/admin/auth"
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === '/admin/auth'
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
                 }`}
               >
                 Admin
               </Link>
+            )}
+            {(isCustomer || isAdmin) && (
+              <>
+                <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout()
+                    setMenuOpen(false)
+                  }}
+                  className="w-full rounded-lg bg-red-50 px-4 py-3.5 text-base font-medium text-red-600 transition-all duration-150 active:scale-95 hover:bg-red-100 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-900/50"
+                >
+                  Logout
+                </button>
+              </>
+            )}
+            {!isCustomer && !isAdmin && (
+              <>
+                <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
+                <Link
+                  to="/customer-auth"
+                  onClick={() => setMenuOpen(false)}
+                  className="block w-full rounded-lg bg-sky-600 px-4 py-3.5 text-center text-base font-semibold text-white transition-all duration-150 active:scale-95 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-400"
+                >
+                  Login
+                </Link>
+              </>
             )}
           </div>
         </div>
