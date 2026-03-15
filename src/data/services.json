@@ -1,0 +1,31 @@
+[
+  {
+    "id": "hr-operating-model",
+    "title": "HR Operating Model Design",
+    "description": "Assess, design, and implement lean HR processes, from workforce planning to performance management, tailored for scaling technology teams.",
+    "duration": "8–16 weeks",
+    "outcome": "Standardized, auditable, and automation-ready HR processes across regions."
+  },
+  {
+    "id": "web3-talent-strategy",
+    "title": "Web3 Talent Strategy",
+    "description": "Design operating models, role architectures, and talent strategies for blockchain, DeFi, and digital asset organizations entering new markets.",
+    "duration": "8–16 weeks",
+    "outcome": "Clear hiring roadmap aligned to product, compliance, and go-to-market milestones."
+  },
+  {
+    "id": "remote-team-scaling",
+    "title": "Remote Team Scaling",
+    "description": "Build distributed team structures, onboarding playbooks, and performance frameworks that maintain culture and accountability across time zones.",
+    "duration": "6–12 weeks",
+    "outcome": "Scalable remote team model with clear role definitions and communication protocols."
+  },
+  {
+    "id": "policy-compliance",
+    "title": "Policy & Compliance Advisory",
+    "description": "Design HR policies, employee handbooks, and compliance frameworks aligned with local labor regulations and industry standards.",
+    "duration": "4–8 weeks",
+    "outcome": "Compliant, clear, and manager-friendly policy documentation."
+  }
+]
+

@@ -1,0 +1,88 @@
+{
+  "profile": {
+    "id": "K Shivasankari",
+    "name": "K Shivasankari",
+    "headline": "Bitcoin & Blockchain Advisory",
+    "location": "1/131,Telephone colony, Uierialpoonga road, vinayagampatti(PO), salem-636008,Tamil nadu.",
+    "bio": [
+      "I partner with founders, HR leaders, and boards to design operating models, talent strategies, and people analytics that connect people decisions directly to product, risk, and regulatory priorities.",
+      "My work focuses on building HR capabilities that are lean, transparent, and data-informed—without overwhelming managers or employees with process for its own sake."
+    ],
+    "avatarInitials": "AC",
+    "availability": {
+      "status": true,
+      "label": "Available for Consultancy",
+      "tone": "available"
+    },
+    "coverStyle": "gradient-soft"
+  },
+  "sections": {
+    "about": {
+      "eyebrow": "Profile",
+      "title": "Independent HR and people advisory for scaling technology and Web3 organizations.",
+      "summary": [
+        "I partner with founders, HR leaders, and boards to design operating models, talent strategies, and people analytics that connect people decisions directly to product, risk, and regulatory priorities.",
+        "My work focuses on building HR capabilities that are lean, transparent, and data-informed—without overwhelming managers or employees with process for its own sake."
+      ]
+    },
+    "experience": {
+      "eyebrow": "Experience",
+      "title": "Selected roles and advisory engagements.",
+      "description": "Representative experience across in-house HR leadership and independent consulting in technology and Web3 ecosystems."
+    },
+    "services": {
+      "eyebrow": "Consultancy offerings",
+      "title": "Structured advisory engagements for HR and Web3 leaders.",
+      "description": "Each engagement is scoped with clear outcomes, timelines, and decision points, typically delivered over 8–16 weeks."
+    },
+    "achievements": {
+      "eyebrow": "Engagement highlights",
+      "title": "Recent transformation and advisory programs.",
+      "description": "Photographic representations of client work, focusing on leadership sessions, operating model design, and implementation workshops."
+    },
+    "education": {
+      "eyebrow": "Education & Certifications",
+      "title": "Formal education and selected certifications.",
+      "description": "Academic background and credentials that support HR, analytics, and change work."
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "title": "Share a brief context and preferred timeframe."
+    }
+  },
+  "sidebar": {
+    "contact": {
+      "title": "Contact",
+      "email": "shivasankari@gmail.com",
+      "phone": "+91 9787786790",
+      "location": "1/131,Telephone colony, Uierialpoonga road, vinayagampatti(PO), salem-636008,Tamil nadu.",
+      "availability": "Available for consultancy engagements"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "languages": {
+      "title": "Languages"
+    },
+    "metrics": {
+      "title": "HR Metrics Snapshot",
+      "description": "Illustrative metrics from recent advisory engagements."
+    }
+  },
+  "actions": {
+    "primary": {
+      "label": "Schedule Consultation",
+      "href": "/contact",
+      "type": "link"
+    },
+    "secondary": {
+      "label": "Download Profile",
+      "type": "button",
+      "action": "download"
+    }
+  },
+  "footer": {
+    "brand": "SS Quantum Solutions — ",
+    "tagline": "Professional consultancy profile built with React and Tailwind CSS."
+  }
+}

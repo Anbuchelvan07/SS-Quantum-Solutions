@@ -1,0 +1,30 @@
+[
+  {
+    "id": "global-rollout",
+    "image": "/assets/achievement-global-rollout.jpg",
+    "eventName": "Global HR Operating Model Rollout",
+    "client": "European Fintech Group",
+    "date": "2024",
+    "summary": "Led the design and rollout of a unified HR operating model across 5 countries.",
+    "details": "Defined process blueprints for recruitment, onboarding, performance management, and workforce planning. Partnered with HR leads in 5 regions to harmonize policies while respecting local labor regulations."
+  },
+  {
+    "id": "web3-scaleup",
+    "image": "/assets/achievement-web3-scaleup.jpg",
+    "eventName": "Web3 Engineering Scale-Up Program",
+    "client": "Layer-2 Infrastructure Startup",
+    "date": "2023",
+    "summary": "Supported a Web3 scale-up to double headcount while maintaining a 94% retention rate.",
+    "details": "Introduced competency frameworks, leveling guides, and compensation bands for core protocol, devrel, and product teams. Implemented a streamlined hiring funnel with clear quality-of-hire metrics."
+  },
+  {
+    "id": "people-analytics-suite",
+    "image": "/assets/achievement-people-analytics.jpg",
+    "eventName": "People Analytics Suite Implementation",
+    "client": "Global Technology Consultancy",
+    "date": "2022",
+    "summary": "Designed and launched a people analytics suite covering hiring, retention, and engagement.",
+    "details": "Partnered with HR leadership to define KPIs, built reporting layers on existing HRIS and ATS data, and trained HRBPs on insight-led decision making."
+  }
+]
+

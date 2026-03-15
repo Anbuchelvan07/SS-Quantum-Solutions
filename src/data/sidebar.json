@@ -1,0 +1,23 @@
+{
+  "contact": {
+    "email": "shivasankari@gmail.com",
+    "phone": "+91 9787786790",
+   "location": "1/131,Telephone colony, Uierialpoonga road, vinayagampatti(PO), salem-636008,Tamil nadu.",
+    "availability": "Available for consultancy engagements" 
+  },
+  "skills": [
+    "HR Operating Model Design",
+    "People Analytics & Metrics",
+    "Web3 Talent Strategy",
+    "Change Management",
+    "HRIS Implementation",
+    "Workforce Planning",
+    "Performance Management",
+    "Organisational Design"
+  ],
+  "languages": [
+    { "name": "English", "proficiency": "Native" },
+    { "name": "French", "proficiency": "Professional" },
+    { "name": "Spanish", "proficiency": "Conversational" }
+  ]
+}

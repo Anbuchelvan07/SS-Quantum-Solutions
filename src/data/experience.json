@@ -1,0 +1,45 @@
+[
+  {
+    "id": "SS Quantum Solutions",
+    "title": "Principal HR & People Strategy Consultant",
+    "company": "SS Quantum Solutions (Independent)",
+    "type": "Independent consultancy",
+    "location": "Remote — EMEA & North America",
+    "start": "2021",
+    "end": "Present",
+    "highlights": [
+      "Design HR operating models, role architectures, and people analytics for scaling technology and Web3 organizations.",
+      "Work directly with founders, HR leaders, and boards on workforce planning, leadership roles, and governance.",
+      "Structure 8–16 week advisory and implementation sprints with clear decision points and measurable outcomes."
+    ]
+  },
+  {
+    "id": "fintech-group",
+    "title": "Head of People Strategy",
+    "company": "European Fintech Group",
+    "type": "Permanent role",
+    "location": "London, United Kingdom",
+    "start": "2017",
+    "end": "2021",
+    "highlights": [
+      "Led people strategy across product, engineering, and operations during international expansion.",
+      "Introduced people analytics, succession planning, and calibrated performance processes.",
+      "Sponsored HRIS and ATS implementations aligned with regulatory and audit requirements."
+    ]
+  },
+  {
+    "id": "global-consultancy",
+    "title": "Senior Consultant, HR Transformation",
+    "company": "Global Technology Consultancy",
+    "type": "Consulting",
+    "location": "EMEA",
+    "start": "2013",
+    "end": "2017",
+    "highlights": [
+      "Delivered HR operating model, process, and technology projects for clients across financial services and technology.",
+      "Supported global rollouts of performance frameworks, talent programs, and shared service models.",
+      "Worked with cross-functional teams spanning HR, finance, risk, and operations."
+    ]
+  }
+]
+

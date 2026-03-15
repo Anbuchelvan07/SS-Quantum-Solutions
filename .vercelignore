@@ -1,0 +1,45 @@
+# Ignore server directory - frontend only
+server/
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+
+# Build artifacts
+node_modules/
+dist/
+build/
+
+# IDE and tools
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+DEPLOYMENT_GUIDE.md
+*.md
+
+# Development configs
+vite.config.js.bak
+webpack.config.js
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# MongoDB
+mongodb/

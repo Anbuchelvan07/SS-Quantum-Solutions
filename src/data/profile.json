@@ -1,0 +1,54 @@
+{
+  "header": {
+    "name": "K Shivasankari",
+    "headline": "Bitcoin &Blockchain Advisory",
+    "location": "1/131,Telephone colony, Uierialpoonga road, vinayagampatti(PO), salem-636008,Tamil nadu.",
+    "statusLabel": "Available for Consultancy",
+    "statusTone": "available",
+    
+    "avatarInitials": "AC"
+  },
+  "about": {
+    "eyebrow": "Profile",
+    "title": "Independent HR and people advisory for scaling technology and Web3 organizations.",
+    "summary": [
+      "I partner with founders, HR leaders, and boards to design operating models, talent strategies, and people analytics that connect people decisions directly to product, risk, and regulatory priorities.",
+      "My work focuses on building HR capabilities that are lean, transparent, and data-informed—without overwhelming managers or employees with process for its own sake."
+    ]
+  },
+  "experienceSection": {
+    "eyebrow": "Experience",
+    "title": "Selected roles and advisory engagements.",
+    "description": "Representative experience across in-house HR leadership and independent consulting in technology and Web3 ecosystems."
+  },
+  "servicesSection": {
+    "eyebrow": "Consultancy offerings",
+    "title": "Structured advisory engagements for HR and Web3 leaders.",
+    "description": "Each engagement is scoped with clear outcomes, timelines, and decision points, typically delivered over 8–16 weeks."
+  },
+  "achievementsSection": {
+    "eyebrow": "Engagement highlights",
+    "title": "Recent transformation and advisory programs.",
+    "description": "Photographic representations of client work, focusing on leadership sessions, operating model design, and implementation workshops."
+  },
+  "educationSection": {
+    "eyebrow": "Education & Certifications",
+    "title": "Formal education and selected certifications.",
+    "description": "Academic background and credentials that support HR, analytics, and change work."
+  },
+  "contactSidebar": {
+    "title": "Contact"
+    
+  },
+  "skillsSidebar": {
+    "title": "Skills"
+  },
+  "languagesSidebar": {
+    "title": "Languages"
+  },
+  "metricsSidebar": {
+    "title": "HR Metrics Snapshot",
+    "description": "Illustrative metrics from recent advisory engagements."
+  }
+}
+

@@ -1,0 +1,48 @@
+# Ignore frontend directory - backend only
+src/
+public/
+node_modules/.vite/
+
+# Frontend build artifacts
+dist/
+build/
+
+# Frontend configs
+vite.config.js
+tsconfig.json
+
+# Development files
+.env.local
+.env.development
+.env.test
+
+# IDE and tools
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+DEPLOYMENT_GUIDE.md
+
+# Frontend package files
+package-lock-frontend.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Frontend dependencies
+node_modules/@vitejs/
+node_modules/vite/

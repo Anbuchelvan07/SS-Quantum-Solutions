@@ -1,0 +1,31 @@
+[
+  {
+    "id": "global-hires",
+    "label": "Global Hires Supported",
+    "value": 320,
+    "suffix": "+",
+    "description": "Senior and critical hires across product, engineering, and HR in EMEA and APAC."
+  },
+  {
+    "id": "retention-rate",
+    "label": "Average Retention Rate",
+    "value": 93,
+    "suffix": "%",
+    "description": "Average 12-month retention across long-term advisory clients."
+  },
+  {
+    "id": "clients-served",
+    "label": "Clients Served",
+    "value": 28,
+    "suffix": "",
+    "description": "High-growth technology firms, Web3 protocols, and professional services organizations."
+  },
+  {
+    "id": "projects-completed",
+    "label": "Transformation Projects Delivered",
+    "value": 45,
+    "suffix": "+",
+    "description": "End-to-end HR transformations, HRIS implementations, and operating model redesigns."
+  }
+]
+

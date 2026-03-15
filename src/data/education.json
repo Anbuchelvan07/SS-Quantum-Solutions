@@ -1,0 +1,26 @@
+[
+  {
+    "id": "masters-hr",
+    "institution": "London School of Economics",
+    "program": "MSc Human Resources and Organisations",
+    "location": "London, United Kingdom",
+    "start": "2011",
+    "end": "2012"
+  },
+  {
+    "id": "bachelors-psych",
+    "institution": "University of Leeds",
+    "program": "BA (Hons) Psychology",
+    "location": "Leeds, United Kingdom",
+    "start": "2008",
+    "end": "2011"
+  },
+  {
+    "id": "cert-change",
+    "institution": "Professional Certification",
+    "program": "Change Management & Organisational Design (Chartered Institute)",
+    "location": "EMEA",
+    "start": "2015",
+    "end": "2015"
+  }
+]
