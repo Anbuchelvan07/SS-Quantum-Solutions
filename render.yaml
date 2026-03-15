@@ -27,8 +27,9 @@ services:
         scope: build
         value: ${RESEND_API_KEY}
       - key: FRONTEND_URL
-        scope: build
         value: https://your-vercel-domain.vercel.app
+      - key: PORT
+        value: 5001
 
 databases:
   - name: mongodb
