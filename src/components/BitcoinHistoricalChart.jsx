@@ -186,21 +186,21 @@ const BitcoinHistoricalChart = ({ height = 400 }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
       {/* Chart header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-xl font-bold text-gray-900 mb-1">Bitcoin Price History</h2>
-          <p className="text-sm text-gray-500">
+          <h2 className="text-lg font-bold text-gray-900 sm:text-xl mb-1">Bitcoin Price History</h2>
+          <p className="text-xs text-gray-500 sm:text-sm">
             30-day performance with market capitalization
           </p>
         </div>
         
         {/* Time range selector */}
         <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-500">Period:</span>
+          <span className="text-xs text-gray-500 sm:text-sm">Period:</span>
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-xs sm:text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="30d">30 Days</option>
             <option value="7d">7 Days</option>
@@ -211,22 +211,22 @@ const BitcoinHistoricalChart = ({ height = 400 }) => {
 
       {/* Statistics cards */}
       {stats && (
-        <div className="grid grid-cols-4 gap-4 mb-6">
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-600 mb-1">Highest</div>
-            <div className="text-sm font-semibold text-gray-900">₹{stats.highest}</div>
+        <div className="mb-6 grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4">
+          <div className="rounded-lg bg-gray-50 p-2 sm:p-3">
+            <div className="mb-1 text-xs text-gray-600">Highest</div>
+            <div className="text-xs font-semibold text-gray-900 sm:text-sm">₹{stats.highest}</div>
           </div>
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-600 mb-1">Lowest</div>
-            <div className="text-sm font-semibold text-gray-900">₹{stats.lowest}</div>
+          <div className="rounded-lg bg-gray-50 p-2 sm:p-3">
+            <div className="mb-1 text-xs text-gray-600">Lowest</div>
+            <div className="text-xs font-semibold text-gray-900 sm:text-sm">₹{stats.lowest}</div>
           </div>
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-600 mb-1">Average</div>
-            <div className="text-sm font-semibold text-gray-900">₹{stats.average}</div>
+          <div className="rounded-lg bg-gray-50 p-2 sm:p-3">
+            <div className="mb-1 text-xs text-gray-600">Average</div>
+            <div className="text-xs font-semibold text-gray-900 sm:text-sm">₹{stats.average}</div>
           </div>
-          <div className="bg-gray-50 rounded-lg p-3">
-            <div className="text-xs text-gray-600 mb-1">Volatility</div>
-            <div className="text-sm font-semibold text-gray-900">₹{stats.volatility}</div>
+          <div className="rounded-lg bg-gray-50 p-2 sm:p-3">
+            <div className="mb-1 text-xs text-gray-600">Volatility</div>
+            <div className="text-xs font-semibold text-gray-900 sm:text-sm">₹{stats.volatility}</div>
           </div>
         </div>
       )}

@@ -29,9 +29,9 @@ export default function MeetingSetupModal({ booking, token, onClose, onSuccess }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-      <div className="w-full max-w-md rounded-3xl border border-slate-800 bg-slate-950 p-6 shadow-lg">
-        <h2 className="text-xl font-semibold text-slate-50">Accept Consultation</h2>
-        <p className="mt-2 text-sm text-slate-400">Booking: {booking.name} • {booking.date} at {booking.time}</p>
+      <div className=\"w-full max-w-md rounded-3xl border border-slate-800 bg-slate-950 p-4 shadow-lg sm:p-6\">
+        <h2 className=\"text-lg font-semibold text-slate-50 sm:text-xl\">Accept Consultation</h2>
+        <p className=\"mt-2 text-xs text-slate-400 sm:text-sm\">Booking: {booking.name} • {booking.date} at {booking.time}</p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           {error && (
@@ -69,18 +69,18 @@ export default function MeetingSetupModal({ booking, token, onClose, onSuccess }
             </div>
           )}
 
-          <div className="flex gap-3 pt-4">
+          <div className="flex flex-col gap-2 pt-4 sm:flex-row">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 rounded-2xl border border-slate-700 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-900"
+              className="w-full rounded-2xl border border-slate-700 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-900 sm:w-auto"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 rounded-2xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-2xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {loading ? 'Accepting...' : 'Accept Consultation'}
             </button>

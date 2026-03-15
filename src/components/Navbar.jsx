@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 import { useAuth } from '../context/AuthContext'
 
@@ -13,9 +14,10 @@ const navItems = [
 export default function Navbar() {
   const location = useLocation()
   const { isAdmin, isCustomer, logout } = useAuth()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
+    <nav className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2">
           <div className="h-9 w-9 overflow-hidden rounded-full bg-sky-600 shadow-sm dark:bg-sky-500">
@@ -29,8 +31,19 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <div className="flex items-center gap-6">
-          <ul className="hidden items-center gap-6 text-xs font-medium text-slate-600 sm:flex dark:text-slate-300">
+        <div className="flex items-center gap-3 sm:gap-6">
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="inline-flex items-center justify-center sm:hidden"
+            aria-label="Toggle menu"
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} />
+            </svg>
+          </button>
+
+          <ul className="hidden items-center gap-4 text-xs font-medium text-slate-600 sm:flex sm:gap-6 dark:text-slate-300">
             {navItems.map((item) => (
               <li key={item.path}>
                 <Link
@@ -117,6 +130,67 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
       </div>
+
+      {/* Mobile menu dropdown */}
+      {menuOpen && (
+        <div className=\"border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 sm:hidden\">
+          <div className=\"space-y-1 px-4 py-3\">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === item.path
+                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            {isCustomer && (
+              <Link
+                to=\"/book\"
+                onClick={() => setMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/book'
+                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                My Bookings
+              </Link>
+            )}
+            {isAdmin && (
+              <Link
+                to=\"/admin\"
+                onClick={() => setMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/admin'
+                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                Dashboard
+              </Link>
+            )}
+            {!isAdmin && (
+              <Link
+                to=\"/admin/auth\"
+                onClick={() => setMenuOpen(false)}
+                className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                  location.pathname === '/admin/auth'
+                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                    : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                Admin
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

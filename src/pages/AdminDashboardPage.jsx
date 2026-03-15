@@ -107,14 +107,14 @@ export default function AdminDashboardPage() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-400">Admin Dashboard</p>
-            <h1 className="mt-2 text-3xl font-semibold">Consultancy bookings</h1>
-            <p className="mt-2 text-sm text-slate-400">Signed in as {user?.email}</p>
+            <h1 className="mt-2 text-2xl font-semibold sm:text-3xl">Consultancy bookings</h1>
+            <p className="mt-2 text-xs text-slate-400 sm:text-sm">Signed in as {user?.email}</p>
           </div>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
             <select
               value={filter}
               onChange={(event) => setFilter(event.target.value)}
-              className="rounded-2xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 outline-none"
+              className="w-full rounded-2xl border border-slate-700 bg-slate-900 px-4 py-2.5 text-sm text-slate-100 outline-none sm:w-auto"
             >
               <option value="all">All statuses</option>
               {statusOptions.map((status) => (
@@ -126,14 +126,14 @@ export default function AdminDashboardPage() {
             <button
               type="button"
               onClick={() => navigate('/')}
-              className="rounded-2xl border border-slate-700 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-900"
+              className="w-full rounded-2xl border border-slate-700 px-4 py-2.5 text-sm font-medium text-slate-200 transition hover:border-slate-600 hover:bg-slate-900 sm:w-auto"
             >
               View website
             </button>
             <button
               type="button"
               onClick={handleLogout}
-              className="rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400"
+              className="w-full rounded-2xl bg-sky-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 sm:w-auto"
             >
               Logout
             </button>
