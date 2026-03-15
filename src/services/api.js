@@ -187,25 +187,25 @@ export const downloadProfile = async () => {
  * @returns {Promise<Object>} Comprehensive Bitcoin market data
  */
 export const fetchBitcoinMarket = async () => {
-  const response = await fetch('/api/market/bitcoin')
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-  }
-  
-  const json = await response.json()
+  try {
+    const json = await apiRequest('/api/market/bitcoin')
 
-  // Handle API-level errors
-  if (!json.success) {
-    const errorMessage = json.error?.message || json.message || 'Bitcoin market data unavailable'
-    throw new Error(errorMessage)
-  }
+    // Handle API-level errors
+    if (!json.success) {
+      const errorMessage = json.error?.message || json.message || 'Bitcoin market data unavailable'
+      throw new Error(errorMessage)
+    }
 
-  // Validate essential data structure
-  if (!json.data || !json.data.current) {
-    throw new Error('Invalid market data structure received')
-  }
+    // Validate essential data structure
+    if (!json.data || !json.data.current) {
+      throw new Error('Invalid market data structure received')
+    }
 
-  return json
+    return json
+  } catch (error) {
+    console.error('Error fetching Bitcoin market data:', error)
+    throw error
+  }
 }
 
 export const authApi = {
@@ -253,6 +253,14 @@ export const appointmentApi = {
   getBookedSlots: async (date) => {
     const data = await apiRequest(`/api/appointments/booked-slots?date=${encodeURIComponent(date)}`)
     return data.bookedTimes || []
+  },
+
+  scheduleConsultation: async (payload) => {
+    const data = await apiRequest('/api/appointments', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    })
+    return data.data || data
   },
 
   createBooking: async (token, payload) => {

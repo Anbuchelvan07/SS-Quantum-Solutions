@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { appointmentApi } from '../services/api'
 
 export default function ScheduleConsultationModal({ isOpen, onClose }) {
   const [name, setName] = useState('')
@@ -52,19 +53,13 @@ export default function ScheduleConsultationModal({ isOpen, onClose }) {
     setSubmitting(true)
 
     try {
-      const res = await fetch('/api/appointments', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), mobile: mobile.trim(), date, time }),
+      const data = await appointmentApi.scheduleConsultation({
+        name: name.trim(),
+        email: email.trim(),
+        mobile: mobile.trim(),
+        date,
+        time,
       })
-
-      const data = await res.json()
-
-      if (!res.ok) {
-        setError(data.message || data.errors?.join(', ') || 'Booking failed. Please try again.')
-        setSubmitting(false)
-        return
-      }
 
       const formattedDate = new Date(date + 'T00:00').toLocaleDateString('en-GB', {
         weekday: 'long',
