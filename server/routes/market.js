@@ -1,5 +1,5 @@
 import express from 'express'
-import { fetchBitcoinMarketData } from '../services/bitcoinService.js'
+import { fetchBitcoinMarketData, clearCache } from '../services/bitcoinService.js'
 
 const router = express.Router()
 
@@ -63,6 +63,32 @@ router.get('/bitcoin', async (req, res) => {
           granularity: 'daily'
         }
       }
+    })
+  }
+})
+
+/**
+ * POST /api/market/bitcoin/refresh
+ * Force clear cache and fetch fresh Bitcoin data
+ * (Use with admin authentication in production)
+ */
+router.post('/bitcoin/refresh', async (req, res) => {
+  try {
+    console.log('🔄 Manual Bitcoin cache refresh requested')
+    clearCache('bitcoin-market-data')
+    
+    const freshData = await fetchBitcoinMarketData()
+    res.json({
+      success: true,
+      message: 'Cache cleared and fresh data fetched',
+      data: freshData
+    })
+  } catch (error) {
+    console.error('❌ Error during manual refresh:', error)
+    res.status(500).json({
+      success: false,
+      message: 'Failed to refresh Bitcoin data',
+      error: error.message
     })
   }
 })

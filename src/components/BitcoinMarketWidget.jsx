@@ -65,9 +65,16 @@ export default function BitcoinMarketWidget() {
     const market = data.data?.current
     const change = market?.priceChange24h
     const isPositive = typeof change === 'number' && change >= 0
+    const isStale = data.isStale || !data.data?.metadata?.isLive
+    const warningMessage = data.warning
 
     return (
       <div className="space-y-3">
+        {isStale && warningMessage && (
+          <div className="rounded-lg bg-amber-50 p-2.5 text-xs text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">
+            ⚠️ {warningMessage}
+          </div>
+        )}
         <div className="flex items-baseline justify-between">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">

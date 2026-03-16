@@ -131,6 +131,8 @@ const BitcoinHistoricalChart = ({ height = 400 }) => {
   const [error, setError] = useState(null)
   const [stats, setStats] = useState(null)
   const [timeRange, setTimeRange] = useState('30d')
+  const [isStale, setIsStale] = useState(false)
+  const [warningMessage, setWarningMessage] = useState(null)
 
   // Fetch historical data
   const fetchData = async () => {
@@ -140,11 +142,16 @@ const BitcoinHistoricalChart = ({ height = 400 }) => {
       
       const response = await fetchBitcoinMarket()
       
-      if (!response.success) {
+      // Check if data is stale
+      const dataIsStale = response.isStale || !response.data?.metadata?.isLive
+      setIsStale(dataIsStale)
+      setWarningMessage(response.warning || null)
+      
+      if (!response.success && data.length === 0) {
         throw new Error(response.error?.message || 'Failed to fetch historical data')
       }
       
-      const processedData = processChartData(response.data.historical)
+      const processedData = processChartData(response.data?.historical || response.fallback?.historical)
       setData(processedData)
       setStats(calculateStats(processedData))
       
@@ -185,6 +192,13 @@ const BitcoinHistoricalChart = ({ height = 400 }) => {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+      {/* Stale data warning */}
+      {isStale && warningMessage && (
+        <div className="mb-4 rounded-lg bg-amber-50 p-3 text-sm text-amber-700 border border-amber-200">
+          ⚠️ {warningMessage}
+        </div>
+      )}
+      
       {/* Chart header */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
