@@ -60,38 +60,70 @@ export default function Navbar() {
               </li>
             ))}
             {isCustomer && (
-              <li>
-                <Link
-                  to="/book"
-                  className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
-                    location.pathname === '/book' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
-                  }`}
-                >
-                  My Bookings
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link
+                    to="/book"
+                    className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
+                      location.pathname === '/book' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
+                    }`}
+                  >
+                    My Bookings
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/online-classes"
+                    className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
+                      location.pathname === '/online-classes' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
+                    }`}
+                  >
+                    Online Classes
+                  </Link>
+                </li>
+              </>
             )}
             {isAdmin ? (
-              <li>
-                <Link
-                  to="/admin"
-                  className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
-                    location.pathname === '/admin' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
-                  }`}
-                >
-                  Dashboard
-                </Link>
-              </li>
+              <>
+                <li>
+                  <Link
+                    to="/admin"
+                    className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
+                      location.pathname === '/admin' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
+                    }`}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/admin/online-classes"
+                    className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
+                      location.pathname === '/admin/online-classes' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
+                    }`}
+                  >
+                    Online Classes
+                  </Link>
+                </li>
+              </>
             ) : (
               <li>
                 <Link
                   to="/admin/auth"
-                  className={`transition-colors hover:text-slate-900 dark:hover:text-white ${
-                    location.pathname === '/admin/auth' ? 'font-semibold text-sky-600 dark:text-sky-400' : ''
-                  }`}
-                >
-                  Admin
-                </Link>
+             >
+              <Link
+                to="/book"
+                className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+              >
+                Bookings
+              </Link>
+              <Link
+                to="/online-classes"
+                className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+              >
+                Classes
+              </Link>
+            </Link>
               </li>
             )}
           </ul>
@@ -103,6 +135,14 @@ export default function Navbar() {
               className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
             >
               Bookings
+            </Link>
+          )}
+          {isAdmin && (
+            <Link
+              to="/admin/online-classes"
+              className="hidden rounded-full border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-slate-400 hover:text-slate-900 sm:inline-flex dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white"
+            >
+              Classes
             </Link>
           )}
           {!isCustomer && (
@@ -146,17 +186,43 @@ export default function Navbar() {
                 className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === item.path
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div className="my-2 border-t border-slate-200 dark:border-slate-700"></div>
-            {isCustomer && (
-              <Link
-                to="/book"
-                onClick={() => setMenuOpen(false)}
+               >
+                <Link
+                  to="/book"
+                  onClick={() => setMenuOpen(false)}
+                  className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
+                    location.pathname === '/book'
+                      ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                      : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  My Bookings
+                </Link>
+                <Link
+               >
+                <Link
+                  to="/admin"
+                  onClick={() => setMenuOpen(false)}
+                  className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
+                    location.pathname === '/admin'
+                      ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                      : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  to="/admin/online-classes"
+                  onClick={() => setMenuOpen(false)}
+                  className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
+                    location.pathname === '/admin/online-classes'
+                      ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                      : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Online Classes
+                </Link>
+              </{() => setMenuOpen(false)}
                 className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === '/book'
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'

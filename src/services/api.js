@@ -311,3 +311,68 @@ export const appointmentApi = {
     })
   },
 }
+
+export const onlineClassApi = {
+  getAllClasses: async (token, status = 'all') => {
+    const data = await apiRequest(`/api/online-classes?status=${encodeURIComponent(status)}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data.data || []
+  },
+
+  getAssignedClasses: async (token) => {
+    const data = await apiRequest('/api/online-classes/assigned', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data.data || []
+  },
+
+  getClass: async (token, id) => {
+    const data = await apiRequest(`/api/online-classes/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data.data
+  },
+
+  createClass: async (token, payload) => {
+    const data = await apiRequest('/api/online-classes', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    })
+    return data.data
+  },
+
+  updateClass: async (token, id, payload) => {
+    const data = await apiRequest(`/api/online-classes/${id}`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify(payload),
+    })
+    return data.data
+  },
+
+  assignUsers: async (token, id, userIds) => {
+    const data = await apiRequest(`/api/online-classes/${id}/assign-users`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ userIds }),
+    })
+    return data.data
+  },
+
+  joinClass: async (token, id) => {
+    const data = await apiRequest(`/api/online-classes/${id}/join`, {
+      method: 'PATCH',
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    return data
+  },
+
+  deleteClass: async (token, id) => {
+    return apiRequest(`/api/online-classes/${id}`, {
+      method: 'DELETE',
+      headers: { Authorization: `Bearer ${token}` },
+    })
+  },
+}

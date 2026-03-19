@@ -8,6 +8,7 @@ import Appointment from './models/Appointment.js'
 import User from './models/User.js'
 import marketRoutes from './routes/market.js'
 import appointmentRoutes from './routes/appointments.js'
+import onlineClassRoutes from './routes/onlineClasses.js'
 import { ensureAdminAccount } from './services/bootstrapAdmin.js'
 
 const app = express()
@@ -41,10 +42,12 @@ app.use('/api/auth', authRoutes)
 app.use('/api/contact', contactRoutes)
 app.use('/api/market', marketRoutes)
 app.use('/api/appointments', appointmentRoutes)
+app.use('/api/online-classes', onlineClassRoutes)
 
 // Connect to MongoDB then start server
 connectDB()
-  .then(async () => {
+  .tconst OnlineClass = (await import('./models/OnlineClass.js')).default
+    await Promise.all([User.syncIndexes(), Appointment.syncIndexes(), OnlineClass
     await Promise.all([User.syncIndexes(), Appointment.syncIndexes()])
     await ensureAdminAccount()
 

@@ -14,6 +14,8 @@ import AdminAuthPage from './pages/AdminAuthPage'
 import AdminAccessPage from './pages/AdminAccessPage'
 import BookingPage from './pages/BookingPage'
 import CustomerAuthPage from './pages/CustomerAuthPage'
+import AdminOnlineClassPage from './pages/AdminOnlineClassPage'
+import UserOnlineClassPage from './pages/UserOnlineClassPage'
 
 function App() {
   return (
@@ -39,10 +41,26 @@ function App() {
               }
             />
             <Route
+              path="/online-classes"
+              element={
+                <ProtectedRoute roles={['customer']}>
+                  <UserOnlineClassPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/admin"
               element={
                 <AdminProtectedRoute>
                   <AdminDashboardPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/online-classes"
+              element={
+                <AdminProtectedRoute>
+                  <AdminOnlineClassPage />
                 </AdminProtectedRoute>
               }
             />
