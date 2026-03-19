@@ -18,8 +18,6 @@ export default function Navbar() {
 
   const isActive = (path) => location.pathname === path
 
-  const isActive = (path) => location.pathname === path
-
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950 shadow-sm">
       {/* Main navbar container */}
@@ -281,4 +279,6 @@ export default function Navbar() {
       )}
     </nav>
   )
+}
+
 
