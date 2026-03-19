@@ -46,9 +46,9 @@ app.use('/api/online-classes', onlineClassRoutes)
 
 // Connect to MongoDB then start server
 connectDB()
-  .tconst OnlineClass = (await import('./models/OnlineClass.js')).default
-    await Promise.all([User.syncIndexes(), Appointment.syncIndexes(), OnlineClass
-    await Promise.all([User.syncIndexes(), Appointment.syncIndexes()])
+  .then(async () => {
+    const OnlineClass = (await import('./models/OnlineClass.js')).default
+    await Promise.all([User.syncIndexes(), Appointment.syncIndexes(), OnlineClass.syncIndexes()])
     await ensureAdminAccount()
 
     app.listen(PORT, () => {
