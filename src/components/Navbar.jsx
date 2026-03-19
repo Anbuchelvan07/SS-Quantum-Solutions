@@ -186,7 +186,14 @@ export default function Navbar() {
                 className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
                   location.pathname === item.path
                     ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-               >
+                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            {isCustomer && (
+              <>
                 <Link
                   to="/book"
                   onClick={() => setMenuOpen(false)}
@@ -199,7 +206,20 @@ export default function Navbar() {
                   My Bookings
                 </Link>
                 <Link
-               >
+                  to="/online-classes"
+                  onClick={() => setMenuOpen(false)}
+                  className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
+                    location.pathname === '/online-classes'
+                      ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
+                      : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
+                  }`}
+                >
+                  Online Classes
+                </Link>
+              </>
+            )}
+            {isAdmin && (
+              <>
                 <Link
                   to="/admin"
                   onClick={() => setMenuOpen(false)}
@@ -222,28 +242,7 @@ export default function Navbar() {
                 >
                   Online Classes
                 </Link>
-              </{() => setMenuOpen(false)}
-                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
-                  location.pathname === '/book'
-                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-                }`}
-              >
-                My Bookings
-              </Link>
-            )}
-            {isAdmin && (
-              <Link
-                to="/admin"
-                onClick={() => setMenuOpen(false)}
-                className={`block rounded-lg px-4 py-3.5 text-base font-medium transition-all duration-150 ${
-                  location.pathname === '/admin'
-                    ? 'bg-sky-50 text-sky-600 dark:bg-sky-900/30 dark:text-sky-400'
-                    : 'text-slate-700 active:scale-95 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800'
-                }`}
-              >
-                Dashboard
-              </Link>
+              </>
             )}
             {!isAdmin && (
               <Link
